@@ -27,14 +27,13 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div v-if="isOpen">
+  <div v-if="isOpen" class="modal">
     <div class="overlay"></div>
     <div class="modal-window">
       <div class="modal-content">
         <div class="modal-header">
-          <h2 v-if="title">{{ title }}</h2>
+          <h3 v-if="title">{{ title }}</h3>
           <Button
-            style="position: absolute; top: 14px; right: 14px"
             class="close-btn"
             label=""
             @click="emit('close')"
@@ -54,7 +53,11 @@ onUnmounted(() => {
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+.modal {
+  position: relative;
+}
+
 .overlay {
   position: fixed;
   top: 0;
@@ -79,22 +82,28 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  .modal-content {
+    padding: 0 4vw 4vh 4vw;
+  }
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .modal-body {
+    display: flex;
+    gap: 48px;
+    flex-direction: column;
+  }
 }
 
-.modal-content {
-  padding: 4vh 4vw;
-}
-
-.modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-.modal-body {
-  display: flex;
-  gap: 48px;
-  flex-direction: column;
+.close-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
 }
 
 .error-message {
