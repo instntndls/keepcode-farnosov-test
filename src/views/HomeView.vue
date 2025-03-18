@@ -54,12 +54,11 @@ const handleDragOver = (event: DragEvent) => {
     <div class="card-grid">
       <h2 class="label">Новые</h2>
       <NoteCard
-        v-for="task in tasks?.filter(task => !task.completed)"
+        v-for="(task) in tasks?.filter((task: any) => !task.completed)"
         :key="task.id"
         :id="task.id"
         :text="task?.title"
         :draggable="true"
-        :completed
         @dragstart="handleDragStart(task.id)"
         @complete="handleCompleteTask(task.id)"
         @fetch="handleFetchTasks()"
@@ -70,7 +69,7 @@ const handleDragOver = (event: DragEvent) => {
          @drop="handleDrop">
       <h2 class="label">Завершенные</h2>
       <NoteCard
-        v-for="task in tasks?.filter(task => task.completed)"
+        v-for="(task) in tasks?.filter((task: any) => task.completed)"
         :key="task.id"
         :id="task.id"
         :text="task?.title"

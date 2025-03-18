@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { ref } from 'vue'
 import Button from '@/components/Button/Button.vue'
 import Input from '@/components/Input/Input.vue'
 import ModalWindow from '@/components/ModalWindow/ModalWindow.vue'
 import { useTasksStore } from '@/stores/tasks.ts'
-import TextField from '@/components/TextField/TextField.vue'
 import HomeView from '@/views/HomeView.vue'
 const tasksStore = useTasksStore()
 
